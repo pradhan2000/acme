@@ -292,5 +292,12 @@ td {
 }
 
 .bg-ord {
-    background-color: #aedae4;
+    background-color: #dee8fe;
+}
+.mr-3{
+    margin-right: 3%
+}
+
+.modal-dialog{
+    max-width: 1000px;
 }
