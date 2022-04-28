@@ -301,3 +301,6 @@ td {
 .modal-dialog{
     max-width: 1000px;
 }
+
+.show {display: block !important;}
+.hide {display: none}

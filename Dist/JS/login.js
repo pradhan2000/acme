@@ -1,8 +1,8 @@
 function validateForm() {
     let email = document.getElementById("email").value;
     let pass = document.getElementById("password").value;
-    let email1 = "himanshukathuria1997@gmail.com"
-    let pass1 = "Himanshu123"
+    let email1 = "umeshpradhan.bls@gmail.com"
+    let pass1 = "umesh7"
 
     if (email == null || email != email1) {
         alert("Email is not correct");
