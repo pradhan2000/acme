@@ -15,3 +15,13 @@ function saveData(){
     localStorage.setItem('orderRecord',JSON.stringify(orderObj));
     document.getElementById('orderForm').reset();  
 }
+
+document.getElementById('body').onload = function() {
+    now = new Date();
+    randomNum = '';
+    randomNum += Math.round(Math.random() *9);
+    randomNum += Math.round(Math.random() *9);
+    randomNum += now.getTime();
+    document.getElementById('txtOrderNumber').value = randomNum;
+    
+}
