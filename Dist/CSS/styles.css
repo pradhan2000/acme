@@ -294,13 +294,25 @@ td {
 .bg-ord {
     background-color: #dee8fe;
 }
-.mr-3{
+
+.mr-3 {
     margin-right: 3%
 }
 
-.modal-dialog{
+.modal-dialog {
     max-width: 1000px;
 }
 
-.show {display: block !important;}
-.hide {display: none}
+.show {
+    display: block !important;
+}
+
+.hide {
+    display: none
+}
+
+.table-striped {
+
+    width: 100%;
+
+}
