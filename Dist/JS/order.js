@@ -1,5 +1,5 @@
-
 var orderRecords = [];
+
 function saveData() {
     var orderNumber = document.getElementById('txtOrderNumber').value;
     var expiryDate = document.getElementById('txtDate').value;
@@ -15,13 +15,12 @@ function saveData() {
         shipAdd
     }
     orderRecords.push(orderObj);
-    console.log(orderObj);
     localStorage.setItem('orderRecord', JSON.stringify(orderRecords));
     document.getElementById('orderForm').reset();
-    window.open("./orderdetail.html", false);
+    window.open("./orderdetail.html?orderNumber=" + orderNumber, false);
 }
 
-document.getElementById('body').onload = function () {
+document.getElementById('body').onload = function() {
     now = new Date();
     randomNum = '';
     randomNum += Math.round(Math.random() * 9);
@@ -31,8 +30,7 @@ document.getElementById('body').onload = function () {
     loadTableData();
 }
 
-var accountObj = [
-    {
+var accountObj = [{
         "id": 1,
         "name": "Tata Consultancy",
         "address": "Versatile Uniform Flexibility",
@@ -98,6 +96,7 @@ var accountObj = [
 /*list of available options*/
 var n = accountObj.length; //length of datalist accountObj   
 var phoneNo = '';
+
 function getAccountName(value) {
     document.getElementById('datalist').innerHTML = '';
     //setting datalist empty at the start of function
@@ -119,15 +118,16 @@ function getAccountName(value) {
             //creating and appending new elements in data list
         } else {
             document.getElementById('txtShipAddress').value = '';
-            document.getElementById('txtPhone').value = ''
+            document.getElementById('txtPhone').value = '';
         }
     }
     fillDetails(value ? node.value : '');
 }
+
 function fillDetails(accName) {
-    console.log('Fill Details',)
+
     var accountName = accName;
-    console.log('Account Name', accountName);
+
     if (accName != '') {
         document.getElementById('txtPhone').value = accountObj.filter(item => {
             return accountName == item['name'];
@@ -140,7 +140,7 @@ function fillDetails(accName) {
 }
 
 function loadTableData() {
-    console.log('load data');
+
     var tblOrderList = document.getElementById('table');
     var orderData = JSON.parse(localStorage.getItem('orderRecord')) || [];
     orderRecords = orderData;
@@ -164,17 +164,15 @@ function loadTableData() {
             // var button = document.createElement('input');
             // button.type = 'button';
             // button.value = 'View Details';             
-            row.appendChild(cell);        
+            row.appendChild(cell);
         });
         var cell = document.createElement('td')
         row.appendChild(cell);
         var lastCell = row.cells[row.cells.length - 1];
         lastCell.innerHTML = "<button type='button' class='btn btn-primary'> View Details</button>"
-        
+
         //  table.appendChild(button);
         table.appendChild(row);
     })
     tblOrderList.appendChild(table);
 }
-
-
