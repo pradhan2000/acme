@@ -16,8 +16,9 @@ function saveData() {
     }
     orderRecords.push(orderObj);
     localStorage.setItem('orderRecord', JSON.stringify(orderRecords));
+    localStorage.setItem('orderNumber', JSON.stringify(orderNumber));
     document.getElementById('orderForm').reset();
-    window.open("./orderdetail.html?orderNumber=" + orderNumber, false);
+    window.open("./orderdetail.html", false);
 }
 
 document.getElementById('body').onload = function() {
@@ -102,8 +103,7 @@ function getAccountName(value) {
     //setting datalist empty at the start of function
     //if we skip this step, same name will be repeated
 
-    //input query length
-    nodeID = ''
+   
     for (var i = 0; i < n; i++) {
         if (((accountObj[i]['name'].toLowerCase()).indexOf(value.toLowerCase())) > -1) {
             //comparing if input string is existing in accountObj[i] string
@@ -112,7 +112,6 @@ function getAccountName(value) {
             var val = document.createTextNode(accountObj[i]['name']);
             node.value = accountObj[i]['name'];
             node.id = accountObj[i]['id'];
-            nodeID = node.id;
             node.appendChild(val);
             document.getElementById("datalist").appendChild(node);
             //creating and appending new elements in data list
@@ -160,10 +159,7 @@ function loadTableData() {
         Object.values(items).forEach(text => {
             var cell = document.createElement('td');
             var textNode = document.createTextNode(text);
-            cell.appendChild(textNode);
-            // var button = document.createElement('input');
-            // button.type = 'button';
-            // button.value = 'View Details';             
+            cell.appendChild(textNode);             
             row.appendChild(cell);
         });
         var cell = document.createElement('td')

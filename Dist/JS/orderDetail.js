@@ -10,9 +10,9 @@ var product_details = [
 
 var productCart = [];
 var orderDetailArr = [];
-var queryStringVal = location.search.substring(1);
-var orderNo = queryStringVal.split('=')[1]
-document.getElementById('bodyOrderDetail').onload = function() {
+//var queryStringVal = location.search.substring(1);
+var orderNo = JSON.parse(localStorage.getItem('orderNumber'));
+document.getElementById('bodyOrderDetail').onload = function () {
     var orderDetailObj = JSON.parse(localStorage.getItem('orderRecord'));
     orderDetailArr = orderDetailObj.filter(item => {
         return orderNo == item.orderNumber;
@@ -28,8 +28,6 @@ document.getElementById('bodyOrderDetail').onload = function() {
 
 function loadProducts() {
     var tblOrderList = document.getElementById('table');
-    var orderData = JSON.parse(localStorage.getItem('orderRecord')) || [];
-    orderRecords = orderData;
     var headers = ['ID', 'Product Name', 'Description', 'Unit Price', 'Quantity', 'Action'];
     var headerRow = document.createElement('tr');
 
@@ -45,7 +43,6 @@ function loadProducts() {
         var row = document.createElement('tr');
         Object.values(items).forEach(text => {
             var cell = document.createElement('td');
-            cell.setAttribute('class', "product");
             var textNode = document.createTextNode(text);
             cell.appendChild(textNode);
             row.appendChild(cell);
@@ -62,7 +59,7 @@ function loadProducts() {
 
 // JavaScript code
 function search_product() {
-    var input, filter, table, tr, td, i, txtValue;
+    var input, fil//ter, table, tr, td, i, txtValue;
     input = document.getElementById("searchbar");
     filter = input.value.toUpperCase();
     table = document.getElementById("table");
@@ -111,4 +108,6 @@ function addProduct() {
         qty
     }
     productCart.push(productDetailsObj);
+    localStorage.setItem('productRecord', JSON.stringify(productCart));
+    console.log("productCart",JSON.parse(localStorage.getItem('productRecord')));
 }
