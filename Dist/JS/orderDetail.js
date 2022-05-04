@@ -1,4 +1,5 @@
 var product_details = [
+    { "id": 0, "product_name": "--Select Option--", "product_desc": "Neighbour", "unit_price": 48, "quantity": "1218772956" },
     { "id": 1, "product_name": "Cob", "product_desc": "Neighbour", "unit_price": 48, "quantity": "1218772956" },
     { "id": 2, "product_name": "Lief", "product_desc": "Bache", "unit_price": 71, "quantity": "1311332367" },
     { "id": 3, "product_name": "Cally", "product_desc": "Bradford", "unit_price": 7, "quantity": "9848842217" },
@@ -7,8 +8,8 @@ var product_details = [
     { "id": 6, "product_name": "Sarena", "product_desc": "Youthed", "unit_price": 62, "quantity": "4547293090" },
     { "id": 7, "product_name": "Torrey", "product_desc": "Kitchingman", "unit_price": 81, "quantity": "9132622384" },
 ];
+var productCart =[];
 
-var productCart = [];
 var orderDetailArr = [];
 //var queryStringVal = location.search.substring(1);
 var orderNo = JSON.parse(localStorage.getItem('orderNumber'));
@@ -27,63 +28,33 @@ document.getElementById('bodyOrderDetail').onload = function () {
 }
 
 function loadProducts() {
-    var tblOrderList = document.getElementById('table');
-    var headers = ['ID', 'Product Name', 'Description', 'Unit Price', 'Quantity', 'Action'];
-    var headerRow = document.createElement('tr');
-
-    headers.forEach(headerText => {
-        var header = document.createElement('th');
-        var textNode = document.createTextNode(headerText);
-        header.appendChild(textNode);
-        headerRow.appendChild(header);
+    var select = document.getElementById('select');
+    var selectOption = document.createElement('select');
+    selectOption.setAttribute('class','form-control');
+    selectOption.setAttribute('id','selectList');
+    selectOption.setAttribute('onChange','getProductDetails()');  
+    product_details.forEach(items => {      
+        var option = document.createElement('option');
+        Object.values(items).forEach(text =>{
+            option.value = items.product_name;  
+            option.innerHTML = option.value;
+        })          
+        selectOption.appendChild(option);
     });
-
-    table.appendChild(headerRow);
-    product_details.forEach(items => {
-        var row = document.createElement('tr');
-        Object.values(items).forEach(text => {
-            var cell = document.createElement('td');
-            var textNode = document.createTextNode(text);
-            cell.appendChild(textNode);
-            row.appendChild(cell);
-        });
-        var cell = document.createElement('td');
-        row.appendChild(cell);
-        var lastCell = row.cells[row.cells.length - 1];
-        lastCell.innerHTML = "<button type='button' class='btn btn-primary' id='btnSubmit' data-bs-toggle='modal' data-bs-target='#addProductModal'  onclick = 'getProductDetails(" + items.id + ")'>Add</button>"
-
-        table.appendChild(row);
-    })
-    tblOrderList.appendChild(table);
+    
+    select.appendChild(selectOption);
+    
+    
 }
 
-// JavaScript code
-function search_product() {
-    var input, fil//ter, table, tr, td, i, txtValue;
-    input = document.getElementById("searchbar");
-    filter = input.value.toUpperCase();
-    table = document.getElementById("table");
-    tr = table.getElementsByTagName("tr");
-    for (i = 0; i < tr.length; i++) {
-        td = tr[i].getElementsByTagName("td")[1];
-        if (td) {
-            txtValue = td.textContent || td.innerText;
-            if (txtValue.toUpperCase().indexOf(filter) > -1) {
-                tr[i].style.display = "";
-            } else {
-                tr[i].style.display = "none";
-            }
-        }
-    }
-}
-
-function getProductDetails(value) {
-    document.getElementById('txtProductName').value = product_details.filter(item => {
-        return item.id == value;
-    })[0].product_name;
+var productName = '';
+function getProductDetails() {
+var selectedVal = document.getElementById('selectList');
+var value = selectedVal.options[selectedVal.selectedIndex].value;
     document.getElementById('txtPrice').value = product_details.filter(item => {
-        return item.id == value;
+        return item.product_name == value;
     })[0].unit_price;
+    productName = value;
 }
 
 function calculatePrice() {
@@ -95,11 +66,11 @@ function calculatePrice() {
 
     document.getElementById('txtPrice').value = totalPrice;
 
-    console.log(total);
 }
 
-function addProduct() {
-    var productName = document.getElementById('txtProductName').value;
+
+ document.getElementById("btnSubmit").onclick = function(e) {
+    //var productName = document.getElementById('txtProductName').value;
     var price = document.getElementById('txtPrice').value;
     var qty = document.getElementById('txtQty').value;
     var productDetailsObj = {
@@ -108,6 +79,30 @@ function addProduct() {
         qty
     }
     productCart.push(productDetailsObj);
-    localStorage.setItem('productRecord', JSON.stringify(productCart));
-    console.log("productCart",JSON.parse(localStorage.getItem('productRecord')));
+    localStorage.setItem('productRecord', JSON.stringify(productCart));    
+    showAddedProduct();
+    e.preventDefault();
+}
+
+function showAddedProduct() {
+    var productsArr = JSON.parse(localStorage.getItem('productRecord'));
+    document.getElementById('prodCount').innerText = productsArr.length;
+    var divCard = document.getElementById('dvcard');
+  
+    productsArr.forEach(items =>{  
+ console.log(items); 
+  var dv= document.createElement('div');
+        dv.setAttribute('class', 'card mb-2');
+        var dvcardbody = document.createElement('div');
+        dvcardbody.setAttribute('class','card-body');
+        var h5 = document.createElement('h5');
+        h5.setAttribute('class','card-title');
+        h5.innerText = 'Product = ' + items.productName;
+        var div = document.createElement('div');
+        div.innerHTML = '<p class="card-text"><h5 class="card-subtitle mb-2"> Price = "'+items.price+'"</h5><h5 class="card-subtitle mb-2"> Quantity = "'+items.qty+'"</h5></p>';        
+        dvcardbody.appendChild(h5);
+        dvcardbody.appendChild(div);
+        dv.appendChild(dvcardbody);
+        divCard.appendChild(dv);
+    })
 }
