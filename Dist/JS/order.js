@@ -165,10 +165,14 @@ function loadTableData() {
         var cell = document.createElement('td')
         row.appendChild(cell);
         var lastCell = row.cells[row.cells.length - 1];
-        lastCell.innerHTML = "<button type='button' class='btn btn-primary'> View Details</button>"
+        lastCell.innerHTML = "<button type='button' class='btn btn-primary' onclick='navigateToOrderDetails()'> View Details</button>"
 
         //  table.appendChild(button);
         table.appendChild(row);
     })
     tblOrderList.appendChild(table);
+}
+
+function navigateToOrderDetails() {
+    window.location.href ="./orderdetail.html";
 }

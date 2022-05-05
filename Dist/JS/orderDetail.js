@@ -71,6 +71,7 @@ function calculatePrice() {
 
  document.getElementById("btnSubmit").onclick = function(e) {
     //var productName = document.getElementById('txtProductName').value;
+    productCart = [];
     var price = document.getElementById('txtPrice').value;
     var qty = document.getElementById('txtQty').value;
     var productDetailsObj = {
@@ -79,30 +80,53 @@ function calculatePrice() {
         qty
     }
     productCart.push(productDetailsObj);
-    localStorage.setItem('productRecord', JSON.stringify(productCart));    
-    showAddedProduct();
-    e.preventDefault();
+    showAddedProduct(productCart);
+    return false;
 }
 
-function showAddedProduct() {
-    var productsArr = JSON.parse(localStorage.getItem('productRecord'));
-    document.getElementById('prodCount').innerText = productsArr.length;
+var totalProductArr = [];
+function showAddedProduct(cartArr) {   
     var divCard = document.getElementById('dvcard');
   
-    productsArr.forEach(items =>{  
- console.log(items); 
-  var dv= document.createElement('div');
-        dv.setAttribute('class', 'card mb-2');
+    // cartArr.forEach(items =>{   
+    for(var i = 0; i< cartArr.length ; i++)
+    {
+        console.log(cartArr[i]['productName']);
+        var dv= document.createElement('div');
+        dv.setAttribute('class', 'card mb-2 bg-info');
         var dvcardbody = document.createElement('div');
         dvcardbody.setAttribute('class','card-body');
         var h5 = document.createElement('h5');
         h5.setAttribute('class','card-title');
-        h5.innerText = 'Product = ' + items.productName;
+        h5.innerText = 'Product = ' + cartArr[i]['productName'];
         var div = document.createElement('div');
-        div.innerHTML = '<p class="card-text"><h5 class="card-subtitle mb-2"> Price = "'+items.price+'"</h5><h5 class="card-subtitle mb-2"> Quantity = "'+items.qty+'"</h5></p>';        
+        div.innerHTML = '<p class="card-text"><h5 class="card-subtitle mb-2"> Price = $ '+cartArr[i]['price']+'.00</h5><h5 class="card-subtitle mb-2"> Quantity = '+cartArr[i]['qty']+'</h5></p>';        
         dvcardbody.appendChild(h5);
         dvcardbody.appendChild(div);
         dv.appendChild(dvcardbody);
         divCard.appendChild(dv);
-    })
+        totalProductArr.push(cartArr[i]);         
+    }
+    document.getElementById('prodCount').innerText = totalProductArr.length;
+    document.getElementById('selectList').value = '--Select Option--';
+    document.getElementById('txtPrice').value = '';
+    document.getElementById('txtQty').value = '';
+    console.log(totalProductArr);
+    calculateTotalPrice(totalProductArr);
+}
+
+
+function calculateTotalPrice(priceValue){
+    var sum=0;
+    for(var i = 0 ; i< priceValue.length ; i++){
+        var price = parseInt(priceValue[i]['price']);
+        sum = price + parseInt(sum);       
+    }
+    document.getElementById('txtTotalPrice').innerHTML = sum;
+
+//    document.getElementById('txtTotalPrice').innerText =  priceValue.forEach(items =>{
+//     var price = parseInt(items.price);
+//      sum = price + parseInt(sum) ;
+//     console.log(sum);
+// })
 }
