@@ -11,7 +11,7 @@ var product_details = [
 var productCart =[];
 
 var orderDetailArr = [];
-//var queryStringVal = location.search.substring(1);
+
 var orderNo = JSON.parse(localStorage.getItem('orderNumber'));
 document.getElementById('bodyOrderDetail').onload = function () {
     var orderDetailObj = JSON.parse(localStorage.getItem('orderRecord'));

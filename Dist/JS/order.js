@@ -18,7 +18,7 @@ function saveData() {
     localStorage.setItem('orderRecord', JSON.stringify(orderRecords));
     localStorage.setItem('orderNumber', JSON.stringify(orderNumber));
     document.getElementById('orderForm').reset();
-    window.open("./orderdetail.html", false);
+    window.open("./orderdetail.html?orderObj = "+JSON.stringify(orderRecords)+"?orderNumber="+orderNumber, false);
 }
 
 document.getElementById('body').onload = function() {
