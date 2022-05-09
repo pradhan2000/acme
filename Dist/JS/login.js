@@ -1,19 +1,19 @@
-function validateForm() {
-    let email = document.getElementById("email").value;
-    let pass = document.getElementById("password").value;
-    let email1 = "umeshpradhan.bls@gmail.com"
-    let pass1 = "umesh7"
+// function validateForm() {
+//     let email = document.getElementById("email").value;
+//     let pass = document.getElementById("password").value;
+//     let email1 = "umeshpradhan.bls@gmail.com"
+//     let pass1 = "umesh7"
 
-    if (email == null || email != email1) {
-        alert("Email is not correct");
-        return false;
-    }
-    else if (pass.length < 6 || pass != pass1) {
+//     if (email == null || email != email1) {
+//         alert("Email is not correct");
+//         return false;
+//     }
+//     else if (pass.length < 6 || pass != pass1) {
 
-        alert("Password is not correct");
-        return false;
-    }
-}
+//         alert("Password is not correct");
+//         return false;
+//     }
+// }
 
 // function validateForm() {
 //     let email = document.getElementById("email").value;

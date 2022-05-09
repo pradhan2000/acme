@@ -69,19 +69,25 @@ function calculatePrice() {
 }
 
 
- document.getElementById("btnSubmit").onclick = function(e) {
+ document.getElementById("btnSubmit").onclick = function() {
     //var productName = document.getElementById('txtProductName').value;
-    productCart = [];
-    var price = document.getElementById('txtPrice').value;
-    var qty = document.getElementById('txtQty').value;
-    var productDetailsObj = {
-        productName,
-        price,
-        qty
+    if(document.getElementById('txtQty').value){
+        productCart = [];
+        var price = document.getElementById('txtPrice').value;
+        var qty = document.getElementById('txtQty').value;
+        var productDetailsObj = {
+            productName,
+            price,
+            qty
+        }
+        productCart.push(productDetailsObj);
+        showAddedProduct(productCart);
+        return false;
+    } else{
+        alert("Please Add Quantity !");
     }
-    productCart.push(productDetailsObj);
-    showAddedProduct(productCart);
-    return false;
+   
+    
 }
 
 var totalProductArr = [];

@@ -13,83 +13,70 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Roboto:wght@100;300&display=swap" rel="stylesheet">
 
     <link rel="stylesheet" href="Dist/CSS/styles.css" />
+    <link rel="stylesheet" href="dash.css" />
 </head>
 
 <body id="body" onload="loadData()">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-lg-2">
-                <div class="container">
-                    <nav class="navbar navbar-expand-lg navbar-light side_bar" style="margin-left: -40px;">
-                        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
-                            <span class="navbar-toggler-icon"></span>
-                        </button>
-                        <div class="profile">
-                            <img src="/Dist/Images/google-icon.svg" alt="">
-                            <p class="pt-1 m-2">Kian Doyle</p>
-                            <i class="far fa-bell"></i>
+    <div class="container-fluid p-0">
+        <div class="row m-0">
+           
+            <span class=" navbar-expand-lg navbar-light  col-md-2 col-lg-2 aside2">
+                <span class=" ">
+                  
+                  <button class="navbar-toggler ms-3 mt-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <span class="navbar-nav  mb-2 mb-lg-0 row aside ">
 
-                        </div>
-                        <div class="collapse navbar-collapse side_bar" id="navbarTogglerDemo01">
+                        <div class="w-100 my-5 logo2 ">ACME Corp</div>
+                      
+                        <div class="item">
+                            <div class="das"> <li class=""><ion-icon name="grid-outline"></ion-icon><a href="dashboard.html"> Dashboard</a></li> </div>
+                            <div> <li><ion-icon name="newspaper-outline"></ion-icon> <a href="#">Quotes</a></li> </div>
+                             <div><li><ion-icon name="cart-outline"></ion-icon> <a href="orderslist.html">Orders</a></li></div>
+                            <div> <li><ion-icon name="receipt-outline"></ion-icon> <a href="invoices.html">Invoices</a></li></div>
+                             <div><li><ion-icon name="briefcase-outline"></ion-icon> <a href="#">Cases</a></li></div>
+                             <div><li class=""><ion-icon name="person-outline"></ion-icon> <a href="#">Accounts</a></li> </div>
+                             <div><li><ion-icon name="people-outline"></ion-icon> <a href="#">Users</a></li></div>
+                             <div><li class="mt-5"><ion-icon name="log-out-outline"></ion-icon> <a href="login2.html">Log Out</a></li></div>
+                         </div>
+                     
 
-                            <ul class="navbar-nav me-auto mb-2 mb-lg-0 flex-column list">
-                                <br><br><br>
 
-                                <div class="logo">
-                                    <!-- <img src="" alt=""> -->
-                                    <h2 class="fw-bold">ACME Corp</h2>
-                                </div>
+                        </span>
+                    
+                    </div>
+                </span>
+            </span>
 
-                                <li class="nav-item first_item">
-                                    <i class="fa-solid fa-solar-panel"></i>
-                                    <a aria-current="page" href="/Dashboard.html">Dashboard</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-file-lines"></i>
-                                    <a href="#">Quotes</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-folder-tree"></i>
-                                    <a href="/orderslist.html">Orders</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-receipt"></i>
-                                    <a href="#">Invoices</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-hospital-user"></i>
-                                    <a href="#">Cases</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-file-invoice-dollar"></i>
-                                    <a href="#">Accounts</a>
-                                </li>
-                                <li class="nav-item">
-                                    <i class="fa-solid fa-users"></i>
-                                    <a href="#">Users</a>
-                                </li>
-                                <li class="nav-item last_item">
-                                    <i class="fa-solid fa-right-from-bracket mt-3"></i>
-                                    <a href="#">Log out</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </nav>
-                </div>
-            </div>
-            <div class="col-lg-10 body2">
-                <nav class="navbar navbar-light bg-light">
-                    <div class="container-fluid welcome">
-                        <p class="pt-3">Hi! Welcome Back <b>Doyle</b></p>
-                        <p class="pt-3 address">1908 Progress way, Alburnett, Iowa - 52202, USA </p>
-                        <div class="profile">
-                            <img src="/Dist/Images/user.png" alt="">
-                            <p class="pt-1 m-2">Kian Doyle</p>
-                            <i class="far fa-bell"></i>
+            <div class="col-md-10 col-lg-10 col-sm-10  header ">
+                <div class="row head m-0 mb-3 mt-2 ">
 
+                    <div class="col-md-4  d-none d-sm-block ">
+                        <div class="m-2">Hi! Welcome back <b> Devion</b></div>
+                    </div>
+
+                    <div class="col-md-4  d-none d-sm-block">
+                        <div class=" addr m-2">1908 Progress Way,Alburnett,lowa-52202,USA.</div>
+                    </div>
+
+                    <div class="col-md-4">
+
+                        <div class="tp">
+                            <img src="Dist/Images/user.png" alt="" class="profile m-2">
+                            Kian Doyle
+                            <ion-icon name="notifications" class=" m-2 text-center"></ion-icon>
                         </div>
                     </div>
-                </nav>
+
+                    <div class="bg-dark p-3 welcm d-md-none mt-2 ">
+                        <span class="f1"> Hi! Welcome back <b> Devion </b> </span> <br>
+                        <span class="f2 text-muted">1908 Progress Way,Alburnett,lowa-52202,USA.</span>
+
+                    </div>
+
+                </div>
                 <div class="container-fluid bg-white mt-5">
                     <div class="row">
                         <div class="col-md-8 pt-3">
@@ -99,14 +86,14 @@
                         </div>
                         <span class="col-md-4 mt-1 pt-3">
                             <button class="btn bg-white text-black btn-secondary mr-3" type="button"
-                                id="dropdownMenuButton2" aria-expanded="false">
+                                id="dropdownMenu1" aria-expanded="false">
                                 Filter By Status <i class="fa fa-sort"></i>
                             </button>
                             <button class="btn bg-white text-black btn-secondary mr-3" type="button"
-                                id="dropdownMenuButton2" aria-expanded="false">
+                                id="dropdownMenu2" aria-expanded="false">
                                 Filter By Date <i class="fa fa-sort"></i>
                             </button>
-                            <button class="btn  text-white btn-primary" type="button" id="dropdownMenuButton2"
+                            <button class="btn  text-white btn-primary" type="button" id="dropdownMenu3"
                                 aria-expanded="false" data-bs-toggle="modal" data-bs-target="#exampleModal">
                                 <i class="fa fa-plus"></i>
                             </button>
@@ -122,7 +109,7 @@
                                         <h5 class="modal-title" id="exampleModalLabel">New Order</h5>
                                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                                     </div>
-                                    <form id="orderForm">
+                                    <form id="orderForm" onsubmit="saveData()">
                                         <div class="modal-body">
                                             <div class="bg-light container-fluid p-3">
                                                 <h4>Order Information</h4>
@@ -139,7 +126,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="input-group">
-                                                        <input type="date" id="txtDate" class="form-control" required>
+                                                        <input type="date" id="txtDate" class="form-control" required/>
                                                         <span class="input-group-text"><i class="fa fa-calendar"></i></span>
                                                     </div>
                                                 </div>
@@ -149,7 +136,7 @@
                                                     <label>Account Name</label>
                                                 </div>
                                                 <div class="col-md-3">
-                                                    <input type='text' id="txtAccountName" list="datalist" class="form-control" autocomplete="off" onkeyup="getAccountName(this.value)">
+                                                    <input type='text' id="txtAccountName" placeholder="choose" list="datalist" class="form-control" autocomplete="off" onkeyup="getAccountName(this.value)" required/>
                                                     <datalist id="datalist">
                                                        
                                                     </datalist>
@@ -159,7 +146,7 @@
                                                 </div>
                                                 <div class="col-md-3">
                                                     <div class="input-group">
-                                                        <input type="text" id="txtPhone" class="form-control">
+                                                        <input type="text" id="txtPhone" class="form-control" required/>
                                                     </div>
                                                 </div>
                                             </div>
@@ -170,7 +157,7 @@
 
                                                 </div>
                                                 <div class="col-md-9">
-                                                    <textarea id="txtShipAddress" class="form-control"></textarea>
+                                                    <textarea id="txtShipAddress" class="form-control" required></textarea>
                                                 </div>
 
 
@@ -178,7 +165,7 @@
 
                                             <div class="modal-footer">
                                                 <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                                                <button type="submit" class="btn btn-primary" id="btnSubmit" onclick="saveData()">Save
+                                                <button type="submit" class="btn btn-primary" id="btnSubmit">Save
                                                     changes</button>
 
                                             </div>
@@ -219,7 +206,7 @@
             </div>
 
             <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-            <script type="text/javascript" src="./Dist/JS/order.js"></script>
+            <script type="text/javascript" src="Dist/JS/order.js"></script>
 </body>
 
 </html>
