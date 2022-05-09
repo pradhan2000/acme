@@ -174,5 +174,5 @@ function loadTableData() {
 }
 
 function navigateToOrderDetails() {
-    window.location.href ="./orderdetail.html";
+    location.href ="orderdetail.html";
 }
